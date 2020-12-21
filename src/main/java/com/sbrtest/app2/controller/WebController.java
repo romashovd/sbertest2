@@ -1,17 +1,13 @@
 package com.sbrtest.app2.controller;
 
 import com.sbrtest.app2.dto.MessageDto;
-//import com.sbrtest.app2.repository.MessageRepo;
-import org.apache.logging.log4j.message.Message;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
-import java.util.Map;
+
 
 @RestController
 @RequestMapping("/")
@@ -51,11 +47,11 @@ public class WebController {
     }
     //Запись сообщений веб
     @PostMapping
-    public String add(@RequestParam String fname,
-                      @RequestParam String lname,
-                      @RequestParam String text,
+    public String add(@RequestParam String name,
+                      @RequestParam String secondname,
+                      @RequestParam String body,
                       Map<String, Object> model) {
-        Message message = new Message(fname, lname, text);
+        Message message = new Message(name, secondname, body);
 
         MessageRepo.save(message);
 
