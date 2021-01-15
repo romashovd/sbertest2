@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <form action="#" th:action="@{/}" th:object="${personForm}" method="post">
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" th:field="*{name}" /></td>
+                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+                </tr>
+                <tr>
+                    <td>LastName:</td>
+                    <td><input type="text" th:field="*{secondName}" /></td>
+                    <td th:if="${#fields.hasErrors('secondName')}" th:errors="*{secondName}">secondName Error</td>
+                </tr>
+                <tr>
+                    <td>Message:</td>
+                    <td><input type="text" th:field="*{messageBody}" /></td>
+                    <td th:if="${#fields.hasErrors('messageBody')}" th:errors="*{messageBody}">messageBody Error</td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Отпарвить</button></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
